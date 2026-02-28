@@ -1,0 +1,64 @@
+:root{
+  --bg:#0f172a; --card:#111827; --ink:#e5e7eb; --muted:#9ca3af; --accent:#22c55e; --warn:#ef4444; --brand:#3b82f6;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; color:var(--ink);
+  background:linear-gradient(180deg,#0b1022, #0f172a);
+  min-height:100vh; display:flex; flex-direction:column; align-items:center;
+}
+header{
+  width:100%; padding:24px 16px; text-align:center;
+}
+header h1{margin:0; font-size:clamp(22px,3vw,30px)}
+header p{margin:6px 0 0; color:var(--muted)}
+.container{
+  width:min(980px, 92%); background:rgba(17,24,39,0.7);
+  backdrop-filter:blur(6px); border:1px solid #1f2937; border-radius:16px;
+  padding:18px; margin:8px auto 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.grid{display:grid; grid-template-columns:1fr; gap:14px}
+@media (min-width:840px){ .grid{grid-template-columns:2fr 3fr} }
+fieldset{
+  border:1px solid #374151; border-radius:12px; padding:12px 12px 8px; margin:0;
+}
+legend{padding:0 8px; color:var(--muted); font-size:14px}
+label{display:block; font-size:14px; color:var(--muted); margin:0 0 6px}
+.row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+select, input[type="number"], input[type="text"]{
+  background:#0b1220; color:var(--ink); border:1px solid #334155; border-radius:10px;
+  padding:10px 12px; font-size:16px; outline:none; width:100%;
+}
+@media (min-width:560px){
+  .row > *{flex:1}
+  .row .short{flex:0 0 140px}
+}
+.btn{
+  background:var(--brand); color:white; border:none; border-radius:10px; padding:10px 14px; font-size:16px;
+  cursor:pointer; transition:.15s transform ease, .15s filter ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:#475569}
+.btn.success{background:var(--accent)}
+.btn.warn{background:var(--warn)}
+.stack{display:flex; gap:10px; flex-wrap:wrap}
+.panel{
+  background:#0a1222; border:1px solid #1f2937; border-radius:12px; padding:12px;
+}
+.eq{
+  font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background:#00000033; border:1px dashed #334155; border-radius:10px; padding:10px; margin:6px 0 0;
+  overflow:auto
+}
+.note{color:var(--muted); font-size:14px}
+.ok{color:var(--accent); font-weight:600}
+.bad{color:var(--warn); font-weight:600}
+.footer-note{color:#94a3b8; font-size:12px; margin-top:10px}
+.kbd{border:1px solid #334155; background:#0b1220; padding:2px 6px; border-radius:6px; font-size:.9em}
+
+/* Segédosztályok, inline stílus kiváltására */
+.hidden{display:none !important;}
+.mt-8{margin-top:8px}
+.mt-10{margin-top:10px}
+.mt-12{margin-top:12px}

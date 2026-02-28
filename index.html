@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polinomok – Műveletek gyakorlása</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Polinomok – Műveletek gyakorlása</h1>
+    <p>Összeadás • Kivonás • Szorzás • Osztás monommal • Értékelés adott <em>x</em>-re</p>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <!-- Beállítások -->
+      <section>
+        <fieldset>
+          <legend>Beállítások</legend>
+          <div class="row">
+            <div>
+              <label for="op">Művelet</label>
+              <select id="op">
+                <option value="add">Összeadás: P(x) + Q(x)</option>
+                <option value="sub">Kivonás: P(x) − Q(x)</option>
+                <option value="mul">Szorzás: P(x) · Q(x)</option>
+                <option value="divm">Osztás monommal: P(x) ÷ (a·x^k)</option>
+                <option value="eval">Értékelés: P(x) | x = r</option>
+              </select>
+            </div>
+            <div>
+              <label for="deg">Max. fok (P & Q)</label>
+              <input id="deg" type="number" min="0" max="5" step="1" value="3" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="coefMin">Együtthatók tartománya (min…max)</label>
+              <div class="row">
+                <input id="coefMin" class="short" type="number" value="-5" />
+                <input id="coefMax" class="short" type="number" value="5" />
+              </div>
+            </div>
+
+            <div id="monomOpts" class="hidden">
+              <label>Monom osztó (a · x^k)</label>
+              <div class="row">
+                <input id="monoA" class="short" type="number" value="2" />
+                <input id="monoK" class="short" type="number" min="0" max="5" value="1" />
+              </div>
+            </div>
+
+            <div id="evalOpts" class="hidden">
+              <label>Értékelés pontja (x = r)</label>
+              <input id="evalR" type="number" value="2" />
+            </div>
+          </div>
+
+          <div class="stack mt-8">
+            <button class="btn" id="genBtn">Új feladat</button>
+            <button class="btn secondary" id="shuffleBtn" title="Új P és Q ugyanazzal a művelettel">Új P,Q</button>
+            <button class="btn secondary" id="showBtn">Mutasd a megoldást</button>
+            <button class="btn secondary" id="resetBtn">Törlés</button>
+          </div>
+        </fieldset>
+
+        <div class="panel mt-12">
+          <div><strong>Feladat</strong></div>
+          <div id="task" class="eq">–</div>
+          <div class="note">Formátum minták: <span class="kbd">3x^2 - 2x + 5</span>, <span class="kbd">-x^3 + x - 7</span>, <span class="kbd">x</span>, <span class="kbd">0</span></div>
+        </div>
+      </section>
+
+      <!-- Válasz/ellenőrzés -->
+      <section>
+        <fieldset>
+          <legend>Válasz</legend>
+          <label for="answer">Írd be az eredményt (egyszerűsített, rendezett alakban):</label>
+          <input id="answer" type="text" placeholder="pl. 2x^3 - x + 4" autocomplete="off"/>
+          <div class="stack mt-10">
+            <button class="btn success" id="checkBtn">Ellenőrzés</button>
+          </div>
+        </fieldset>
+
+        <div class="panel mt-12">
+          <div><strong>Eredmény</strong></div>
+          <div id="feedback" class="eq">–</div>
+          <div id="solution" class="eq hidden mt-8"></div>
+        </div>
+
+        <div class="footer-note">
+          Tipp: használhatsz szóközöket, a kifejezést automatikusan normalizáljuk. Ha <em>x</em>-et számra cserélnéd (értékelés), egész és tört számok is megengedettek (vesszőt is elfogadunk).
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
