@@ -1,5 +1,5 @@
 // ======= Segédfüggvények polinomokhoz =======
-// Polinom reprezentáció: tömb koefficienssel, index = fok (pl. [5, -2, 3] == 3x^2 - 2x + 5)
+// Polinom reprezentáció: tömb koefficienssel, index = fok (pl. [5, -2, 3] == 3X^2 - 2X + 5)
 const clone = a => a.slice();
 
 function trim(p){
@@ -129,11 +129,11 @@ function toStringPoly(p, options = {}) {
     } else if (i === 1) {
       const sign = c >= 0 ? (showPlus ? ' + ' : '') : ' - ';
       const mag = Math.abs(c);
-      s += sign + (Math.abs(mag - 1) < 1e-12 ? 'x' : (toFixedSmart(mag) + 'x'));
+      s += sign + (Math.abs(mag - 1) < 1e-12 ? 'X' : (toFixedSmart(mag) + 'X'));
     } else {
       const sign = c >= 0 ? (showPlus ? ' + ' : '') : ' - ';
       const mag = Math.abs(c);
-      s += sign + (Math.abs(mag - 1) < 1e-12 ? ('x^' + i) : (toFixedSmart(mag) + 'x^' + i));
+      s += sign + (Math.abs(mag - 1) < 1e-12 ? ('X^' + i) : (toFixedSmart(mag) + 'X^' + i));
     }
   }
   return s || '0';
